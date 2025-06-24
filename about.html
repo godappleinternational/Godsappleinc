@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Godsapple Inc.</title>
+<meta name="description" content="Godsapple Inc. is an AI-powered tech company offering web development, mobile apps, branding, and digital design services in Nigeria." />
+<meta name="keywords" content="Godsapple Inc, web development, mobile apps, branding, Abuja, AI-powered design" />
+<meta name="author" content="Godsapple Inc." />
+
+  <!-- Fonts, AOS, Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #5c4b86;
+      --accent-color: #d6a561;
+      --bg-light: #ffffff;
+      --text-dark: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    header {
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .toggle {
+      background: none;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .about-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about-section h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      z-index: 9999;
+    }
+
+    .cursor::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--primary-color);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    [data-aos] {
+      opacity: 0;
+      transition-property: transform, opacity;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor" id="cursor"></div>
+
+  <header>
+    <div class="logo">
+      <img src="img/Godappleinc.png" alt="Godsapple Logo" />
+      <h2>Godsapple Inc.</h2>
+    </div>
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Projects</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+      <button class="toggle" onclick="toggleDarkMode()">Toggle Mode</button>
+    </nav>
+  </header>
+
+  <section class="about-section" data-aos="fade-up">
+    <h1>About Godsapple Inc.</h1>
+    <p>
+      Godsapple Inc. is a tech-driven digital company where creativity meets intelligent automation.
+      Our team is powered by advanced AI systems and experienced developers who collaboratively design
+      elegant websites, mobile apps, and media experiences.
+    </p>
+    <p>
+      At our core, we believe that technology should be simple, smart, and human-focused. That’s why we
+      use modern tools to deliver efficient and impactful solutions for businesses, nonprofits, and individuals.
+    </p>
+  </section>
+
+  <section class="about-section" data-aos="zoom-in">
+    <h1>Our Mission</h1>
+    <p>
+      To simplify technology through creativity and automation, delivering smart digital experiences that
+      empower our clients to grow, connect, and succeed in a digital-first world.
+    </p>
+  </section>
+
+  <section class="about-section" data-aos="fade-up" data-aos-delay="100">
+    <h1>Our Vision</h1>
+    <p>
+      To be Africa’s leading AI-powered creative tech agency — transforming how people and organizations build
+      and experience technology.
+    </p>
+  </section>
+
+  <footer data-aos="fade-up" data-aos-delay="200">
+    &copy; 2025 Godsapple Inc. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+    });
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

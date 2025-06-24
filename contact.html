@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Godsapple Inc.</title>
+<meta name="description" content="Godsapple Inc. is an AI-powered tech company offering web development, mobile apps, branding, and digital design services in Nigeria." />
+<meta name="keywords" content="Godsapple Inc, web development, mobile apps, branding, Abuja, AI-powered design" />
+<meta name="author" content="Godsapple Inc." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #5c4b86;
+      --accent-color: #d6a561;
+      --bg-light: #ffffff;
+      --text-dark: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+
+    header {
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .toggle {
+      background: none;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .contact-section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .contact-section h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--primary-color);
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .contact-info,
+    .contact-form {
+      flex: 1 1 45%;
+      min-width: 280px;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      display: inline-block;
+      margin-right: 1rem;
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-color);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #c2954d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease;
+      z-index: 9999;
+    }
+
+    .cursor::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--primary-color);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    [data-aos] {
+      opacity: 0;
+      transition-property: transform, opacity;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor" id="cursor"></div>
+
+  <header>
+    <div class="logo">
+      <img src="img/Godappleinc.png" alt="Godsapple Logo" />
+      <h2>Godsapple Inc.</h2>
+    </div>
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="active">Contact</a>
+      <button class="toggle" onclick="toggleDarkMode()">Toggle Mode</button>
+    </nav>
+  </header>
+
+  <section class="contact-section" data-aos="fade-up">
+    <h1>Get in Touch</h1>
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info" data-aos="fade-right">
+        <p><strong>Phone:</strong> <a href="tel:+2349075369690">+234 907 536 9690</a></p>
+        <p><strong>Email:</strong> <a href="mailto:Godappleinternational@gmail.com">godappleinternational@gmail.com</a></p>
+        <p><strong>Location:</strong> Suleja, Abuja, Nigeria</p>
+        <p><strong>Connect with us:</strong></p>
+        <a href="https://wa.me/+2349075369690" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61565396531319" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/themindbuildingfoundation" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form" data-aos="fade-left">
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer data-aos="fade-up" data-aos-delay="200">
+    &copy; 2025 Godsapple Inc. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+    });
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
